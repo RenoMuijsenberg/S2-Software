@@ -1,0 +1,38 @@
+﻿@model AModelLayer.Models.SetModel
+@{
+    ViewData["Title"] = "Add set";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <h1>Edit set</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form asp-controller="Set" asp-action="EditSet" method="post">
+                <input type="hidden" asp-for="ExceriseId">
+                <label asp-for="@Model.DisplayOrder"></label>
+                <input asp-for="@Model.DisplayOrder" class="form-control">
+                <span class="d-block" asp-validation-for="@Model.DisplayOrder"></span>
+                <label asp-for="@Model.Reps"></label>
+                <input asp-for="@Model.Reps" class="form-control">
+                <span class="d-block" asp-validation-for="@Model.Reps"></span>
+                <label asp-for="@Model.Weight"></label>
+                <input asp-for="@Model.Weight" class="form-control">
+                <span class="d-block" asp-validation-for="@Model.Weight"></span>
+                <button type="submit" class="btn btn-primary mt-2">Edit set</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

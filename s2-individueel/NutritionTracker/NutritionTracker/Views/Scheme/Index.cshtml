@@ -1,0 +1,56 @@
+﻿@model IEnumerable<AModelLayer.Models.SchemeModel>
+@{
+    ViewData["Title"] = "Scheme index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <h1>Scheme overview</h1>
+                <a asp-controller="Scheme" asp-action="CreateScheme" class="btn btn-primary">Create scheme</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @if (Model != null)
+        {
+            @foreach (var scheme in Model)
+            {
+                <div class="col-12 col-md-6">
+
+                    <div class="card mt-1 mb-1">
+                        <a class="selectable-card" asp-controller="Scheme" asp-action="SchemeDetail" asp-route-id="@scheme.Id">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5>@scheme.Name</h5>
+                                <h6 class="text-light">@scheme.DayOne/@scheme.DayTwo </h6>
+                            </div>
+                            <div class="card-body text-white">
+                                @foreach (var excersise in scheme.Excersises)
+                                {
+                                    <div class="d-flex justify-content-between">
+                                        <p class="d-inline-block">@excersise.Name</p>
+                                        <div class="d-flex">
+
+                                            @foreach (var set in excersise.Sets)
+                                            {
+                                                <p>@set.Reps x @set.Weight / </p>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

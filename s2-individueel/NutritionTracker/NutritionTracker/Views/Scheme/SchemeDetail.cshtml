@@ -1,0 +1,60 @@
+﻿@model AModelLayer.Models.SchemeModel
+@{
+    ViewData["Title"] = "Edit scheme";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <h1>Scheme detail</h1>
+                <div class="d-flex">
+                    <a asp-controller="Excersise" asp-action="CreateExcersise" asp-route-id="@Model.Id" class="btn btn-primary">Create excersise</a>
+                    <a asp-controller="Scheme" asp-action="EditScheme" asp-route-id="@Model.Id" class="btn btn-secondary">Edit scheme</a>
+                    <form method="post" asp-controller="Scheme" asp-action="DeleteScheme">
+                        <input type="hidden" asp-for="@Model.Id">
+                        <button type="submit" class="btn btn-danger">Delete scheme</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Excersise name</th>
+                        <th class="w-25">Excersise actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var excersise in Model.Excersises)
+                    {
+                        <tr class="table-dark">
+                            <td>@excersise.Name</td>
+                            <td>
+                                <div class="d-flex justify-content-between">
+                                    <a asp-controller="Excersise" asp-action="ExcersiseDetail" asp-route-id="@excersise.Id" class="btn btn-primary">Details</a>
+                                    <a asp-controller="Excersise" asp-action="EditExcersise" asp-route-id="@excersise.Id" class="btn btn-secondary">Edit</a>
+                                    <form method="post" asp-controller="Excersise" asp-action="DeleteExcersise" asp-route-id="@excersise.Id">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

@@ -1,0 +1,56 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    .create-product-name {
+        width: 75%;
+    }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+.home-image-container {
+    height: calc(100vh - 132px);
+    display: flex;
+    justify-content: center;
+}
+
+.home-image {
+    width: 100%;
+    object-fit: cover;
+}
+
+.amount-input {
+    width: 100px;
+}
+
+.selectable-card {
+    text-decoration: none;
+    color: white;
+}
+
+.text-white-in-link:hover {
+    color: white;
+}

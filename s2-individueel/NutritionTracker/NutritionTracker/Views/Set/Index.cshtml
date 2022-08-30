@@ -1,0 +1,41 @@
+﻿@model AModelLayer.Models.SetModel
+@{
+    ViewData["Title"] = "Add set";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <h1>Add set</h1>
+                <div class="d-flex">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form asp-controller="Set" asp-action="Index" method="post">
+                <label asp-for="@Model.DisplayOrder"></label>
+                <input asp-for="@Model.DisplayOrder" class="form-control">
+                <span class="d-block" asp-validation-for="@Model.DisplayOrder"></span>
+                <label asp-for="@Model.Reps"></label>
+                <input asp-for="@Model.Reps" class="form-control">
+                <span class="d-block" asp-validation-for="@Model.Reps"></span>
+                <label asp-for="@Model.Weight"></label>
+                <input asp-for="@Model.Weight" class="form-control">
+                <span class="d-block" asp-validation-for="@Model.Weight"></span>
+                <button type="submit" class="btn btn-primary mt-2">Add set</button>
+                <a asp-controller="Excersise" asp-action="ExcersiseDetail" asp-route-id="@Url.ActionContext.RouteData.Values["id"]" class="btn btn-secondary mt-2">Go back</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeCirkelVanSchakelaars", "DeCirkelVanSchakelaars.csproj", "{5DB05783-2D73-4864-89D2-5BE68513EDE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeCirkelVanSchakelaars.Test", "..\DeCirkelVanSchakelaars.Test\DeCirkelVanSchakelaars.Test.csproj", "{C75EF214-2037-4EC2-865B-1757151DBCEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DB05783-2D73-4864-89D2-5BE68513EDE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DB05783-2D73-4864-89D2-5BE68513EDE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DB05783-2D73-4864-89D2-5BE68513EDE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DB05783-2D73-4864-89D2-5BE68513EDE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C75EF214-2037-4EC2-865B-1757151DBCEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C75EF214-2037-4EC2-865B-1757151DBCEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C75EF214-2037-4EC2-865B-1757151DBCEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C75EF214-2037-4EC2-865B-1757151DBCEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {192FBAE0-7195-435F-A0A4-4CC831AA35BE}
+	EndGlobalSection
+EndGlobal

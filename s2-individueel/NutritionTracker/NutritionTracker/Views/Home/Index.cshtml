@@ -1,0 +1,117 @@
+﻿@model HomeView
+@{
+    ViewData["Title"] = "Index";
+    double totalKcal = 0;
+    double totalProtein = 0;
+    double totalFat = 0;
+    double totalCarb = 0;
+    double totalSugar = 0;
+    double totalSalt = 0;
+
+
+    foreach (var eaten in Model.Eaten)
+    {
+        totalKcal += eaten.Calorie;
+        totalProtein += eaten.Protein;
+        totalFat += eaten.Fat;
+        totalCarb += eaten.Carb;
+        totalSugar += eaten.Sugar;
+        totalSalt += eaten.Salt;
+    }
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 float-left">
+            <div class="card mt-2">
+                <a asp-controller="Nutrition" asp-action="Index" class="selectable-card">
+                    <div class="card-header">
+                        <h5>Today's nutrition</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table" dir="ltr">
+                            <tbody>
+                            <tr>
+                                <th></th>
+                                <th>Today</th>
+                                <th>Goal</th>
+                            </tr>
+                            <tr>
+                                <th>Kcal</th>
+                                <td>@Math.Round(totalKcal, 2)</td>
+                                <td>@Model.UserInfo.RecommendedKcal</td>
+                            </tr>
+                            <tr>
+                                <th>Protein</th>
+                                <td>@Math.Round(totalProtein, 2)</td>
+                                <td>@Model.UserInfo.RecommendedProtein</td>
+                            </tr>
+                            <tr>
+                                <th>Fat</th>
+                                <td>@Math.Round(totalFat, 2)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Carbs</th>
+                                <td>@Math.Round(totalCarb, 2)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Sugar</th>
+                                <td>@Math.Round(totalSugar, 2)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Salt</th>
+                                <td>@Math.Round(totalSalt, 2)</td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="card mt-2">
+                <a asp-controller="Scheme" asp-action="Index" class="selectable-card">
+                    <div class="card-header">
+                        <h5>Today's scheme</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (Model.Scheme != null)
+                        {
+                            <table class="table" dir="ltr">
+                                <thead>
+                                <tr>
+                                    <th>@Model.Scheme.Name</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach (var excersise in Model.Scheme.Excersises)
+                                {
+                                    <tr>
+                                        <td class="d-flex justify-content-between">
+                                            <span>@excersise.Name</span>
+                                            <span>
+                                                @foreach (var set in excersise.Sets)
+                                                {
+                                                    @($"{set.Reps} x {set.Weight}/")
+                                                }
+                                            </span>
+                                        </td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <p class="text-white">Rest day today!</p>
+                        }
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@model AModelLayer.Models.UserInfoModel
+@inject UserManager<IdentityUser> _userManager
+@{
+    ViewData["Title"] = "Account info";
+
+    var user = _userManager.GetUserName(User);
+}
+
+
+<div class="container">
+    <div class="row">
+        <h2>User info</h2>
+        <hr/>
+    </div>
+    <div class="row">
+        <div class="col-6 col-md-4">
+            <p class="m-0">Email: </p>
+            <p>@user</p>
+            <p class="m-0">Weight: </p>
+            <p>@Model.Weight</p>
+            <p class="m-0">Height: </p>
+            <p>@Model.Height</p>
+            <p class="m-0">Birth date: </p>
+            <p>@Model.BirthDate.ToString("dd/MM/yyyy")</p>
+            <p class="m-0">Gender: </p>
+            <p>@Model.Gender</p>
+            <p class="m-0">Method: </p>
+            <p>@Model.Method</p>
+            <a class="btn btn-primary" asp-controller="UserInfo" asp-action="Edit" asp-route-userId="@_userManager.GetUserId(User)">Edit</a>
+        </div>
+        <div class="col-6">
+            <p class="m-0">Recommended kcal: </p>
+            <p>@Model.RecommendedKcal</p>
+            <p class="m-0">Recommended protein: </p>
+            <p>@Model.RecommendedProtein</p>
+        </div>
+        <div class="col-12">
+
+        </div>
+    </div>
+</div>

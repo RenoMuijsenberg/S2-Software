@@ -1,0 +1,59 @@
+﻿@model AModelLayer.Models.SchemeModel
+@inject UserManager<IdentityUser> _userManager
+@{
+    ViewData["Title"] = "Scheme index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <h1>Create scheme</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form method="post">
+                <input asp-for="UserId" value="@_userManager.GetUserId(User)" type="hidden">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control"/>
+                <span asp-validation-for="Name" class="text-danger d-block"></span>
+
+                <label asp-for="DayOne"></label>
+                <select asp-for="DayOne" class="form-select float-left d-inline-block">
+                    <option value="None">None</option>
+                    <option value="@DayOfWeek.Monday">@DayOfWeek.Monday</option>
+                    <option value="@DayOfWeek.Tuesday">@DayOfWeek.Tuesday</option>
+                    <option value="@DayOfWeek.Wednesday">@DayOfWeek.Wednesday</option>
+                    <option value="@DayOfWeek.Thursday">@DayOfWeek.Thursday</option>
+                    <option value="@DayOfWeek.Friday">@DayOfWeek.Friday</option>
+                    <option value="@DayOfWeek.Saturday">@DayOfWeek.Saturday</option>
+                    <option value="@DayOfWeek.Sunday">@DayOfWeek.Sunday</option>
+                </select>
+                <span asp-validation-for="DayOne" class="text-danger d-block"></span>
+                <span class="text-danger d-block">@Html.ValidationMessage("DayError")</span>
+
+                <label asp-for="DayTwo"></label>
+                <select asp-for="DayTwo" class="form-select float-left d-inline-block">
+                    <option value="None">None</option>
+                    <option value="@DayOfWeek.Monday">@DayOfWeek.Monday</option>
+                    <option value="@DayOfWeek.Tuesday">@DayOfWeek.Tuesday</option>
+                    <option value="@DayOfWeek.Wednesday">@DayOfWeek.Wednesday</option>
+                    <option value="@DayOfWeek.Thursday">@DayOfWeek.Thursday</option>
+                    <option value="@DayOfWeek.Friday">@DayOfWeek.Friday</option>
+                    <option value="@DayOfWeek.Saturday">@DayOfWeek.Saturday</option>
+                    <option value="@DayOfWeek.Sunday">@DayOfWeek.Sunday</option>
+                </select>
+                <span asp-validation-for="DayTwo" class="text-danger d-block"></span>
+                <button type="submit" class="btn btn-primary mt-2">Create scheme</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

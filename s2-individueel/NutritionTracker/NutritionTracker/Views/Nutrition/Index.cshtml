@@ -1,0 +1,50 @@
+﻿@model NutritionTracker.Models.Nutrition.NutritionViewModel
+@{
+    ViewData["Title"] = "Nutrition index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <h1>Nutrition list</h1>
+                <form method="post" class="d-flex">
+                    <div class="form-group">
+                        <select asp-for="Nutrition.ProductId" class="form-select float-left d-inline-block" aria-label="Default select example">
+                            @foreach (var product in Model.Products)
+                            {
+                                <option value="@product.Id">@product.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="Nutrition.ProductId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Nutrition.Amount" min="1" value="1" class="form-control d-inline-block amount-input" type="number"/>
+                        <span asp-validation-for="Nutrition.Amount" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary d-inline-block">Add</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <input name="date" type="date" class="form-control nutrition-date" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4">
+            <input type="text" class="form-control search-nutrition" placeholder="Search">
+        </div>
+    </div>
+    <div class="row table-partial">
+        @{ await Html.RenderPartialAsync("_TablePartialView", Model); }
+    </div>
+</div>
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

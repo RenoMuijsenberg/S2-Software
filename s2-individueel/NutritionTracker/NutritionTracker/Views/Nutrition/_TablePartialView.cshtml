@@ -1,0 +1,80 @@
+﻿@{
+    double totalKcal = 0;
+    double totalFat = 0;
+    double totalCarb = 0;
+    double totalProtein = 0;
+    double totalSugar = 0;
+    double totalSalt = 0;
+}
+
+<div class="col-12">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Kcal</th>
+                <th>Fat</th>
+                <th>Carb</th>
+                <th>Protein</th>
+                <th>Sugar</th>
+                <th>Salt</th>
+                <th>Amount</th>
+                <th>Edit</th>
+            </tr>
+            </thead>
+            <tbody class="table-dark nutrition-table">
+            @foreach (var eaten in Model.Eaten)
+            {
+                totalKcal += eaten.Calorie;
+                totalCarb += eaten.Carb;
+                totalFat += eaten.Fat;
+                totalSugar += eaten.Sugar;
+                totalProtein += eaten.Protein;
+                totalSalt += eaten.Salt;
+                <tr>
+                    <td>@eaten.Name</td>
+                    <td>@Math.Round(eaten.Calorie, 2)</td>
+                    <td>@Math.Round(eaten.Fat, 2)</td>
+                    <td>@Math.Round(eaten.Carb, 2)</td>
+                    <td>@Math.Round(eaten.Protein, 2)</td>
+                    <td>@Math.Round(eaten.Sugar, 2)</td>
+                    <td>@Math.Round(eaten.Salt, 2)</td>
+                    <td>@eaten.Amount</td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" value="@eaten.UserId" name="userId"/>
+                            <button asp-controller="Nutrition" asp-action="Delete" asp-route-id="@eaten.NutritionId" type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+            <tfoot class="table-dark nutrition-table">
+            <tr>
+                <td>Total:</td>
+                <td>@Math.Round(totalKcal, 2)</td>
+                <td>@Math.Round(totalFat, 2)</td>
+                <td>@Math.Round(totalCarb, 2)</td>
+                <td>@Math.Round(totalProtein, 2)</td>
+                <td>@Math.Round(totalSugar, 2)</td>
+                <td>@Math.Round(totalSalt, 2)</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Goal:</td>
+                <td>@Model.UserInfo.RecommendedKcal</td>
+                <td></td>
+                <td></td>
+                <td>@Model.UserInfo.RecommendedProtein</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

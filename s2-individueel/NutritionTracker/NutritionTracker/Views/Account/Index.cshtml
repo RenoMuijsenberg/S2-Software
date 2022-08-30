@@ -1,0 +1,51 @@
+﻿@model AModelLayer.Models.AppUserModel
+@{
+    ViewData["Title"] = "Register Page";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-md-6 float-md-start g-0">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="w-75">
+                    <h1>Register:</h1>
+                    <form method="post" asp-controller="Account" asp-action="Register">
+                        <div class="form-group mb-3">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control"/>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Password"></label>
+                            <input asp-for="Password" class="form-control"/>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="ConfirmPassword"></label>
+                            <input asp-for="ConfirmPassword" class="form-control"/>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary mb-3 w-25 float-left">Register</button>
+                            <span class="p-2">Or</span>
+                            <a asp-controller="Account" asp-action="Login" class="btn btn-secondary mb-3 w-25">Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 float-md-end overflow-hidden g-0">
+            <div class="home-image-container position-relative">
+                <img class="home-image" src="img/deadlift.jpg"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

@@ -1,0 +1,32 @@
+﻿@model AModelLayer.Models.ExcersiseModel
+@{
+    ViewData["Title"] = "Scheme index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <h1>Create excersise</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form method="post">
+                <input type="hidden" asp-for="SchemeId" value="@TempData["SchemeId"]">
+
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control"/>
+                <span asp-validation-for="Name" class="text-danger d-block"></span>
+
+                <label asp-for="DisplayOrder"></label>
+                <input asp-for="DisplayOrder" type="number" class="form-control"/>
+                <span asp-validation-for="DisplayOrder" class="text-danger d-block"></span>
+
+                <button type="submit" class="btn btn-primary mt-2">Create excersise</button>
+            </form>
+            <a asp-controller="Scheme" asp-action="SchemeDetail" asp-route-id="@TempData["SchemeId"]" class="btn btn-secondary mt-2">Back</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+﻿@model AModelLayer.Models.UserInfoModel
+@inject UserManager<IdentityUser> _userManager
+@{
+    ViewData["Title"] = "Edit account info";
+}
+
+
+<div class="container">
+    <div class="row">
+        <h2>Edit user info</h2>
+        <hr/>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <form method="post" asp-controller="UserInfo" asp-action="EditUserInfo" class="d-flex flex-column">
+                <input type="hidden" asp-for="Id">
+                <input type="hidden" asp-for="UserId" value="@_userManager.GetUserId(User)">
+
+                <label asp-for="Weight">Weight: (kg)</label>
+                <input class="form-control" asp-for="Weight" type="number">
+                <span asp-validation-for="Weight" class="text-danger"></span>
+
+                <label asp-for="Height">Height: (cm)</label>
+                <input class="form-control" asp-for="Height" type="number">
+                <span asp-validation-for="Height" class="text-danger"></span>
+
+                <label asp-for="BirthDate">Birth date:</label>
+                <input class="form-control" asp-for="BirthDate" type="date">
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+
+                <label asp-for="Gender">Gender:</label>
+                <select asp-for="Gender" class="form-control">
+                    <option selected>Male</option>
+                    <option>Female</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+
+                <label asp-for="Method">Method:</label>
+                <select asp-for="Method" class="form-control">
+                    <option selected>None</option>
+                    <option>Bulk</option>
+                    <option>Cut</option>
+                </select>
+                <span asp-validation-for="Method" class="text-danger"></span>
+
+                <button class="btn btn-primary mt-2" type="submit">Save</button>
+            </form>
+        </div>
+        <div class="col-12 col-md-4">
+
+        </div>
+    </div>
+</div>

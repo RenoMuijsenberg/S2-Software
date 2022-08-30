@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTracker.API", "ProgressTracker.API.csproj", "{1EFBF010-B12F-4EC5-B215-4C6934A4110F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTracker.MODEL", "..\ProgressTracker.Model\ProgressTracker.MODEL.csproj", "{8B159480-4077-41BF-B9E1-7594F2569E34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTracker.LOGIC", "..\ProgressTracker.LOGIC\ProgressTracker.LOGIC.csproj", "{3E4A8934-AB3C-4C1D-9EEE-8A56D4D2CB04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTracker.LOGIC.INTERFACES", "..\ProgressTracker.LOGIC.INTERFACES\ProgressTracker.LOGIC.INTERFACES.csproj", "{23C45970-7B14-4E66-BFD8-358EB4C22A9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTracker.DAL", "..\ProgressTracker.DAL\ProgressTracker.DAL.csproj", "{14623783-8CFF-4C13-8B8C-5834D089F418}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTracker.DAL.INTERFACES", "..\ProgressTracker.DAL.INTERFACES\ProgressTracker.DAL.INTERFACES.csproj", "{1C65C206-7C13-4534-9F82-7A4FCDEAF6B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1EFBF010-B12F-4EC5-B215-4C6934A4110F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EFBF010-B12F-4EC5-B215-4C6934A4110F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EFBF010-B12F-4EC5-B215-4C6934A4110F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EFBF010-B12F-4EC5-B215-4C6934A4110F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B159480-4077-41BF-B9E1-7594F2569E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B159480-4077-41BF-B9E1-7594F2569E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B159480-4077-41BF-B9E1-7594F2569E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B159480-4077-41BF-B9E1-7594F2569E34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E4A8934-AB3C-4C1D-9EEE-8A56D4D2CB04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E4A8934-AB3C-4C1D-9EEE-8A56D4D2CB04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E4A8934-AB3C-4C1D-9EEE-8A56D4D2CB04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E4A8934-AB3C-4C1D-9EEE-8A56D4D2CB04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C45970-7B14-4E66-BFD8-358EB4C22A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C45970-7B14-4E66-BFD8-358EB4C22A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C45970-7B14-4E66-BFD8-358EB4C22A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C45970-7B14-4E66-BFD8-358EB4C22A9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14623783-8CFF-4C13-8B8C-5834D089F418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14623783-8CFF-4C13-8B8C-5834D089F418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14623783-8CFF-4C13-8B8C-5834D089F418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14623783-8CFF-4C13-8B8C-5834D089F418}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C65C206-7C13-4534-9F82-7A4FCDEAF6B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C65C206-7C13-4534-9F82-7A4FCDEAF6B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C65C206-7C13-4534-9F82-7A4FCDEAF6B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C65C206-7C13-4534-9F82-7A4FCDEAF6B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31567A9F-12D6-451A-A657-CB63AC4D41AC}
+	EndGlobalSection
+EndGlobal

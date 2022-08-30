@@ -1,0 +1,55 @@
+﻿@model List<AModelLayer.Models.ProductModel>
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <h1>Product list</h1>
+                <div>
+                    <a class="btn btn-primary" asp-controller="Admin" asp-action="CreateProduct">Create product</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Product name</th>
+                        <th>Kcal</th>
+                        <th>Fat</th>
+                        <th>Carb</th>
+                        <th>Protein</th>
+                        <th>Suger</th>
+                        <th>Salt</th>
+                        <th>Edit</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var product in Model)
+                    {
+                        <tr class="table-dark">
+                            <td>@product.Name</td>
+                            <td>@product.Calorie</td>
+                            <td>@product.Fat</td>
+                            <td>@product.Carb</td>
+                            <td>@product.Protein</td>
+                            <td>@product.Sugar</td>
+                            <td>@product.Salt</td>
+                            <td class="d-flex">
+                                <a asp-controller="Admin" asp-action="EditProduct" asp-route-id="@product.Id" class="btn btn-primary mr-2">Edit</a>
+                                <form method="post" asp-controller="Admin" asp-action="DeleteProduct" asp-route-id="@product.Id" class="ml-1">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
